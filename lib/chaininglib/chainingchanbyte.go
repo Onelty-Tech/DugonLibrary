@@ -6,7 +6,7 @@ import (
 )
 
 /*
-encadena todos los paquetes actuales de un chan string en un string
+encadena todos los paquetes actuales de un chan string en un string.
 */
 func ChainingChanByte(c chan []byte) ([]byte, error) {
 	var strBuilding strings.Builder
