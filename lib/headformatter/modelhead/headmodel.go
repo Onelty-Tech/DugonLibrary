@@ -19,7 +19,7 @@ decodifica los []bytes a una estructura Head de la cabecera binaria
 */
 func Unmarshal(data []byte) (Head, error) {
 	DataSlice := strings.Split(strings.TrimSpace(string(data)), ",")
-	if len(DataSlice) < 4 {
+	if len(DataSlice) < 5 {
 		return Head{}, fmt.Errorf("error: Invalid length, missing arguments in Unmarshal headmodel;")
 	}
 	Length, err := strconv.Atoi(DataSlice[1])
