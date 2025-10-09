@@ -4,6 +4,9 @@ import (
 	"fmt"
 )
 
+/*
+Convierte un Slice de tipo interface iterando todos los indices para hacer type assertion
+*/
 func GetStringSlice(val any) ([]string, error) {
 	var result []string
 
