@@ -31,9 +31,24 @@ func GetStringSlice(val any) ([]string, error) {
 obtiene un string slice de un mapa.
 */
 func GetStringSliceFromMap(event map[string]any, key string) ([]string, error) {
-	value, ok := event[key].([]string)
-	if !ok {
-		return []string{}, fmt.Errorf("error GetStringSliceFromMap: Invalid data type '%v'", value)
+	var result []string
+	value, exists := event[key]
+	if !exists {
+		return []string{}, fmt.Errorf("error GetStringSliceFromMap: missing key '%s'", key)
 	}
-	return value, nil
+	switch list := value.(type) {
+	case []string:
+		return list, nil
+	case []interface{}:
+		for _, item := range list {
+			str, ok := item.(string)
+			if !ok {
+				return nil, fmt.Errorf("error GetStringSliceFromMap: element is not a string: %v", item)
+			}
+			result = append(result, str)
+		}
+		return result, nil
+	default:
+		return nil, fmt.Errorf("error: GetStringSliceFromMap: expected array of strings, got %T", value)
+	}
 }
