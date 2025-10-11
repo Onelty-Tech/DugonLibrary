@@ -26,3 +26,14 @@ func GetStringSlice(val any) ([]string, error) {
 		return nil, fmt.Errorf("error: GetStringSlice: expected array of strings, got %T", val)
 	}
 }
+
+/*
+obtiene un string slice de un mapa.
+*/
+func GetStringSliceFromMap(event map[string]any, key string) ([]string, error) {
+	value, ok := event[key].([]string)
+	if !ok {
+		return []string{}, fmt.Errorf("error GetStringSliceFromMap: Invalid data type")
+	}
+	return value, nil
+}
