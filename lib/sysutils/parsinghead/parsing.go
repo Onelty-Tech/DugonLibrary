@@ -8,12 +8,6 @@ import (
 	"strings"
 )
 
-type points struct {
-	FStart bool
-	Start  int
-	End    int
-}
-
 const (
 	END = '\n'
 )

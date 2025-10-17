@@ -11,7 +11,7 @@ type Head struct {
 	Length    int
 	Target    string
 	Channel   string
-	Streaming string
+	Streaming []string
 }
 
 /*
