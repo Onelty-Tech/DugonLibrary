@@ -44,7 +44,6 @@ func ParseBinaryHead(reader *bufio.Reader) ([]byte, error) {
 	if err != nil {
 		return []byte{}, fmt.Errorf("error ParseBinaryHead:%w", err)
 	}
-	fmt.Printf("\033[33mParseBinaryHead Testing Buffer:%s\033[0m\n", headerBuffer)
 	return headerBuffer, nil
 }
 
