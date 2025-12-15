@@ -7,10 +7,17 @@ import (
 )
 
 type Head struct {
-	Type      string
-	Length    int
-	Target    string
-	Channel   string
+	//el que envio el paquete
+	Sender string
+	//tipo de paquete
+	Type string
+	//longitud a parsear
+	Length int
+	//objetivo del paquete(cliente)
+	Target string
+	//objetivo de canal
+	Channel string
+	//targets de streamings
 	Streaming []string
 }
 
