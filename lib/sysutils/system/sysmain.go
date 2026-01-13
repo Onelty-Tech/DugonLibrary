@@ -48,11 +48,9 @@ func RunCommandMatcher(cmd ...string) (string, error) {
 	default:
 		command = exec.Command(cmd[0], cmd[1:]...)
 	}
-
 	output, err := command.CombinedOutput()
 	if err != nil {
-		return "", fmt.Errorf("Error: Could not execute command: %w", err)
+		return string(output), fmt.Errorf("Error: Could not execute command: %w", err)
 	}
-
 	return string(output), nil
 }
